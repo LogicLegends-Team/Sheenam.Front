@@ -1,0 +1,155 @@
+@import "../../styles/colors.scss";
+@import "../../styles/sizes.scss";
+
+.navbar {
+  align-items: center;
+  background: $navbarBgColor;
+  backdrop-filter: blur(2px);
+  color: $navbarNotActiveColor;
+  display: flex;
+  font-size: 1.25rem;
+  font-weight: 300;
+  justify-content: space-between;
+  left: 0;
+  padding: 20px $horizontalPadding;
+  position: fixed;
+  top: 0;
+  width: 100dvw;
+  z-index: 1;
+
+  @media screen and (max-width: 840px) {
+    font-size: 1rem;
+  }
+
+  .logo-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    max-width: 200px;
+    min-width: 80px;
+    width: 8dvw;
+    .navbar__logo {
+      width: 100%;
+    }
+  }
+
+  .navbar__menu-icon {
+    cursor: pointer;
+    display: none;
+    font-size: 25px;
+
+    @media screen and (max-width: 730px) {
+      display: block;
+    }
+  }
+
+  @mixin makeHorizontalNavbar {
+    align-items: center;
+    background: transparent;
+    backdrop-filter: none;
+    column-gap: 20px;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    justify-content: flex-end;
+    position: static;
+  }
+
+  .navbar__list {
+    @include makeHorizontalNavbar();
+    list-style: none;
+
+    @media screen and (max-width: 730px) {
+      display: none;
+    }
+
+    &.navbar__panel {
+      align-items: center;
+      background: $navbarBgColor;
+      backdrop-filter: blur(2px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      left: 0;
+      position: fixed;
+      top: 65px;
+      width: 100dvw;
+      height: calc(100dvh - 65px);
+      z-index: 1;
+
+      @media screen and (min-width: 731px) {
+        @include makeHorizontalNavbar();
+      }
+    }
+
+    @mixin makeBackgroundVisible {
+      background-color: $navbarActiveColor;
+      color: black;
+    }
+
+    .navbar__item {
+      &:last-child {
+        .navbar__link {
+          color: $navbarActiveColor;
+          border: 1px solid $navbarActiveColor;
+          border-radius: 10px;
+          padding: 10px 15px;
+          transition:
+            color 0.4s ease,
+            background-color 0.4s ease;
+
+          &:before {
+            visibility: hidden !important;
+          }
+
+          &:hover {
+            @include makeBackgroundVisible();
+            background-color: $navbarNotActiveColor;
+          }
+
+          &.active {
+            @include makeBackgroundVisible();
+          }
+        }
+      }
+
+      .navbar__link {
+        position: relative;
+        text-decoration: none;
+        transition: color 0.4s ease;
+
+        // Underline - Inside Out
+        &:before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          bottom: 0;
+          margin: -5px 0;
+          background-color: $navbarNotActiveColor;
+          visibility: hidden;
+          transform: scaleX(0);
+          transition: all 0.4s ease-in-out 0s;
+        }
+
+        @mixin makeUnderlineVisible {
+          visibility: visible;
+          transform: scaleX(1);
+        }
+
+        &.active {
+          color: $navbarActiveColor;
+
+          &:before {
+            @include makeUnderlineVisible();
+            background-color: $navbarActiveColor;
+          }
+        }
+
+        &:hover:before {
+          @include makeUnderlineVisible();
+        }
+      }
+    }
+  }
+}
