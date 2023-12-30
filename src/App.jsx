@@ -1,4 +1,3 @@
-import "./App.scss";
 import {
   createBrowserRouter,
   createRoutesFromElements,
