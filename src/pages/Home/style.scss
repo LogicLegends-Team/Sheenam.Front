@@ -1,0 +1,77 @@
+@import "../../styles/colors.scss";
+@import "../../styles/sizes.scss";
+
+.home {
+  & > * {
+    padding: 0 $horizontalPadding;
+  }
+
+  .home__header {
+    background: linear-gradient(-30deg, rgba(0, 0, 0, 10%), rgba(0, 0, 0, 80%)),
+      url("../../assets/images/background-image.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: $lightColor;
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+    padding-top: 170px;
+    padding-bottom: 50px;
+    row-gap: 100px;
+
+    .header__title {
+      font-size: 4rem;
+      max-width: 500px;
+    }
+
+    .header__form {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+
+      .search-types {
+        display: flex;
+        column-gap: 3px;
+
+        .search-type {
+          background-color: $lightColor;
+          color: $darkColor;
+          padding: 5px;
+
+          &.active {
+            color: $lightColor;
+            background-color: $darkColor;
+          }
+
+          //   input[type="radio"] {
+          //     opacity: 0;
+          //   }
+        }
+      }
+
+      .search-container {
+        align-items: center;
+        background-color: $lightColor;
+        border-radius: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        column-gap: 10px;
+        row-gap: 8px;
+        padding: 35px 10px;
+
+        .submit-button {
+          background: $darkColor;
+          color: $lightColor;
+          cursor: pointer;
+          border-radius: 10px;
+          border: 1px solid $darkColor;
+          box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.4);
+          font-size: 1.3rem;
+          padding: 10px 40px;
+        }
+      }
+    }
+  }
+}
