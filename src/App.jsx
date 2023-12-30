@@ -14,6 +14,7 @@ import AboutUs from "./pages/AboutUs";
 import Support from "./pages/Support";
 import HowItWorks from "./pages/HowItWorks";
 import NotFound from "./pages/NotFound";
+import SignUp from "./pages/SignUp";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,6 +24,7 @@ const router = createBrowserRouter(
       <Route path={RoutePaths.ABOUT_US} element={<AboutUs />} />
       <Route path={RoutePaths.SUPPORT} element={<Support />} />
       <Route path={RoutePaths.HOW_IT_WORKS} element={<HowItWorks />} />
+      <Route path={RoutePaths.GET_STARTED} element={<SignUp />} />
       <Route path="*" element={<NotFound />} />
     </Route>
   )
