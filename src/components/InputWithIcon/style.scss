@@ -1,0 +1,25 @@
+@import "../../styles/colors.scss";
+
+.input-with-icon {
+  align-items: center;
+  background-color: $milkyColor;
+  border-radius: 10px;
+  column-gap: 10px;
+  display: flex;
+  padding: 14px 5px;
+  width: fit-content;
+
+  .icon {
+    color: $darkColor;
+  }
+
+  input {
+    border: none;
+    background: transparent;
+    font-size: 1.3rem;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
