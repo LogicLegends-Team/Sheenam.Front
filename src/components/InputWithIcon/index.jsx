@@ -1,10 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PropTypes from "prop-types";
+import "./style.scss";
 
 const InputWithIcon = ({ type, placeholder, icon }) => {
   return (
-    <div>
-      <FontAwesomeIcon icon={icon} />
+    <div className="input-with-icon">
+      <FontAwesomeIcon className="icon" icon={icon} />
       <input type={type} placeholder={placeholder} />
     </div>
   );
