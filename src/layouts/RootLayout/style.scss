@@ -1,0 +1,10 @@
+@import "../../styles/sizes.scss";
+
+.root__page-container {
+  position: relative;
+  z-index: 0;
+
+  & > div {
+    padding-top: 80px;
+  }
+}
